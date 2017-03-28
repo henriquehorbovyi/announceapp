@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AnnounceApp</string>
+
+    <!-- toolbar strings -->
+    <string name="toolbar_item_filter">Filtros</string>
+    <string name="toolbar_item_settings">Configurações</string>
 </resources>
