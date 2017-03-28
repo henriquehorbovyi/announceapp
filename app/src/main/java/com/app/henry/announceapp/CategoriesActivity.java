@@ -32,7 +32,7 @@ public class CategoriesActivity extends AppCompatActivity {
         if(frag == null) {
             frag = new CategoryFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container_main, frag, "mainFrag");
+            ft.replace(R.id.fragment_categories, frag, "mainFrag");
             ft.commit();
         }
 
