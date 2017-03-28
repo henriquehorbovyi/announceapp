@@ -49,7 +49,8 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
 
         public MyViewHolder(View item){
             super(item);
-            tvName = (TextView) item.findViewById(R.id.);
+            tvName = (TextView) item.findViewById(R.id.tv_category_title);
+            //tvName = (TextView) item.findViewById(R.id.iv_category);
         }
 
     }
