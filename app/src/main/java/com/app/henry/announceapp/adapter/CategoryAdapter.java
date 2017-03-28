@@ -13,7 +13,7 @@ import com.app.henry.announceapp.model.Category;
 import java.util.List;
 
 /**
- * Created by Eduardo on 26/03/2017.
+ * Created by Henry on 26/03/2017.
  */
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
@@ -52,7 +52,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         notifyItemInserted(position);
     }
 
-    /* MY VIEW HOLDER */
+    /* MY VIEW HOLDER CLASS */
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public ImageView ivCategory;
         public TextView tvCategory;

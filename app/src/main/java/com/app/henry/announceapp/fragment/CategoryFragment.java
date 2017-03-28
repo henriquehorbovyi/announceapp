@@ -15,7 +15,7 @@ import com.app.henry.announceapp.model.Category;
 import java.util.List;
 
 /**
- * Created by Eduardo on 26/03/2017.
+ * Created by Henry on 26/03/2017.
  */
 
 public class CategoryFragment extends android.support.v4.app.Fragment {
@@ -26,7 +26,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category,container,false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_categories);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_cities);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -37,11 +37,10 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
+                /*
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
                 CategoryAdapter adapter = (CategoryAdapter) mRecyclerView.getAdapter();
-
-                /*if(mList.size() == layoutManager.findLastCompletelyVisibleItemPosition() + 1 ){
+                if(mList.size() == layoutManager.findLastCompletelyVisibleItemPosition() + 1 ){
                     List<Category> listaux = ((CategoriesActivity) getActivity()).createCategoriesList(3);
                     for(int i = 0; i < listaux.size(); i++){
                         adapter.addListItem(listaux.get(i), mList.size());
