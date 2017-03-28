@@ -1,6 +1,5 @@
 package com.app.henry.announceapp;
 
-import android.content.Context;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -17,18 +16,15 @@ import com.app.henry.announceapp.model.Category;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+public class CategoriesActivity extends AppCompatActivity {
     Toolbar mToolbar;
-
-    Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_categories);
         mToolbar = (Toolbar) findViewById(R.id.maintoolbar);
         setSupportActionBar(mToolbar);
+
 
 
         // FRAGMENT
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public List<Category> createCategoriesList(int qtd){
         String[] names  = new String[]{"Lojas","Cinemas","Bares"};
-        int[]    images = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+        int[]    images = new int[]{R.drawable.md, R.drawable.city,R.drawable.airplane};
         List<Category>  list  = new ArrayList<>();
         for(int i = 0; i < qtd; i++){
             Category category = new Category(names[i % names.length], images[i % images.length] );

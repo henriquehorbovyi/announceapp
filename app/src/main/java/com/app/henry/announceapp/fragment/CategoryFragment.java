@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.app.henry.announceapp.MainActivity;
+import com.app.henry.announceapp.CategoriesActivity;
 import com.app.henry.announceapp.R;
 import com.app.henry.announceapp.adapter.CategoryAdapter;
 import com.app.henry.announceapp.model.Category;
@@ -41,13 +41,13 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
                 CategoryAdapter adapter = (CategoryAdapter) mRecyclerView.getAdapter();
 
-                if(mList.size() == layoutManager.findLastCompletelyVisibleItemPosition() + 1 ){
-                    List<Category> listaux = ((MainActivity) getActivity()).createCategoriesList(3);
+                /*if(mList.size() == layoutManager.findLastCompletelyVisibleItemPosition() + 1 ){
+                    List<Category> listaux = ((CategoriesActivity) getActivity()).createCategoriesList(3);
                     for(int i = 0; i < listaux.size(); i++){
                         adapter.addListItem(listaux.get(i), mList.size());
                     }
 
-                }
+                }*/
             }
         });
 
@@ -56,7 +56,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mList = ((MainActivity) getActivity()).createCategoriesList(3);
+        mList = ((CategoriesActivity) getActivity()).createCategoriesList(3);
         CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(categoryAdapter);
 
