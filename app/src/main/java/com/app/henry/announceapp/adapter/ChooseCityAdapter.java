@@ -2,12 +2,14 @@ package com.app.henry.announceapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.app.henry.announceapp.R;
+import com.app.henry.announceapp.model.Category;
 import com.app.henry.announceapp.model.City;
 
 import java.util.List;
@@ -28,12 +30,15 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        Log.i("LOG","onCreateViewHolder()");
+        View view = mLayoutInflater.inflate(R.layout.item_city, parent, false);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        holder.tvName.setText(mList.get(position).getName());
     }
 
     @Override
@@ -41,18 +46,21 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
         return mList.size();
     }
 
+    public void addListItem(City city, int position){
+        mList.add(city);
+        notifyItemInserted(position);
+    }
 
+
+
+    /* MY VIEW HOLDER CLASS */
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView tvName;
-        public TextView tvLocation;
-        public TextView tvCep;
 
-        public MyViewHolder(View item){
-            super(item);
-            tvName = (TextView) item.findViewById(R.id.tv_category_title);
-            //tvName = (TextView) item.findViewById(R.id.iv_category);
+        public MyViewHolder(View itemView){
+            super(itemView);
+            tvName = (TextView) itemView.findViewById(R.id.tv_city_title);
         }
-
     }
 
 }

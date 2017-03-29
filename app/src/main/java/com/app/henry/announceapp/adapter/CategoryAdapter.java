@@ -39,7 +39,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         Log.i("LOG","onBindViewHolder()");
         holder.ivCategory.setImageResource(mList.get(position).getImage());
         holder.tvCategory.setText(mList.get(position).getName());
-
     }
 
     @Override
