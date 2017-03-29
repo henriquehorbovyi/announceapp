@@ -1,5 +1,6 @@
 package com.app.henry.announceapp;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,8 +18,14 @@ public class ChooseCityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_city);
 
-        ChooseCityFragment chooseCityFragment   =  (ChooseCityFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
 
+        ChooseCityFragment fragment   =  (ChooseCityFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
+        if(fragment == null){
+            fragment = new ChooseCityFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_choosecity,fragment,"mainFrag");
+            ft.commit();
+        }
     }
 
     public List<City> createCityList(int qtd){

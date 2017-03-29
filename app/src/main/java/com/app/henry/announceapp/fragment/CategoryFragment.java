@@ -26,7 +26,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category,container,false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_cities);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_categories);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -58,7 +58,6 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
         mList = ((CategoriesActivity) getActivity()).createCategoriesList(3);
         CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(categoryAdapter);
-
         return view;
     }
 }
