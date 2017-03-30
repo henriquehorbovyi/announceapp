@@ -4,4 +4,6 @@
     <!-- toolbar strings -->
     <string name="toolbar_item_filter">Filtros</string>
     <string name="toolbar_item_settings">Configurações</string>
+
+    <string name="select_your_location">Selecione sua localização!</string>
 </resources>

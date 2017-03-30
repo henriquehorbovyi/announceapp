@@ -55,7 +55,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mList = ((CategoriesActivity) getActivity()).createCategoriesList(3);
+        mList = ((CategoriesActivity) getActivity()).createCategoriesList(4);
         CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(categoryAdapter);
         return view;

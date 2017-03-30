@@ -2,8 +2,6 @@ package com.app.henry.announceapp.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +13,9 @@ import android.widget.Toast;
 import com.app.henry.announceapp.CategoriesActivity;
 import com.app.henry.announceapp.ChooseCityActivity;
 import com.app.henry.announceapp.R;
-import com.app.henry.announceapp.RecyclerViewClickListener;
 import com.app.henry.announceapp.adapter.ChooseCityAdapter;
+import com.app.henry.announceapp.interfaces.RecyclerViewClickListener;
+import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
 import com.app.henry.announceapp.model.City;
 
 import java.util.List;
@@ -25,7 +24,7 @@ import java.util.List;
  * Created by Henry on 28/03/2017.
  */
 
-public class ChooseCityFragment extends Fragment {
+public class ChooseCityFragment extends Fragment implements RecyclerViewClickListenerHacked{
 
     private RecyclerView mRecyclerView;
     private List<City> mList;
@@ -36,7 +35,7 @@ public class ChooseCityFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_cities);
         mRecyclerView.setHasFixedSize(true);
         //onTouch
-        mRecyclerView.addOnItemTouchListener(
+        /*mRecyclerView.addOnItemTouchListener(
                 new RecyclerViewClickListener(getActivity(), mRecyclerView, new RecyclerViewClickListener.OnItemClickListener() {
                     @Override public void onPress(View view, int position) {
                         startActivity(new Intent(getActivity(), CategoriesActivity.class));
@@ -44,10 +43,10 @@ public class ChooseCityFragment extends Fragment {
                     }
 
                     @Override public void onLongPress(View view, int position) {
-                        Toast.makeText(getActivity(),"LONG PRESS: "+position,Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(),"LONG PRESS: "+position,Toast.LENGTH_LONG).show();
                     }
                 })
-        );
+        );*/
 
         //onScroll
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -70,8 +69,20 @@ public class ChooseCityFragment extends Fragment {
 
         mList = ((ChooseCityActivity) getActivity()).createCityList(3);
         ChooseCityAdapter chooseCityAdapter = new ChooseCityAdapter(getActivity(), mList);
+        chooseCityAdapter.addRecyclerViewClickListenerHacked(this);
         mRecyclerView.setAdapter(chooseCityAdapter);
 
         return view;
     }
+
+
+    //onClick
+    @Override
+    public void onClickListener(View view, int position) {
+        startActivity(new Intent(getActivity(), CategoriesActivity.class));
+        getActivity().finish();
+        //ChooseCityAdapter chooseCityAdapter = (ChooseCityAdapter) mRecyclerView.getAdapter();
+        //chooseCityAdapter.removeListItem(position);
+    }
+
 }

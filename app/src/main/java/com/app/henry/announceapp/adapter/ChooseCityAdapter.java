@@ -7,9 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.app.henry.announceapp.R;
-import com.app.henry.announceapp.model.Category;
+import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
 import com.app.henry.announceapp.model.City;
 
 import java.util.List;
@@ -22,6 +21,7 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
 
     private List<City>      mList;
     private LayoutInflater  mLayoutInflater;
+    private RecyclerViewClickListenerHacked clickListenerHacked;
 
     public ChooseCityAdapter(Context context, List<City> list){
         this.mList = list;
@@ -46,20 +46,38 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
         return mList.size();
     }
 
+
+    public void addRecyclerViewClickListenerHacked(RecyclerViewClickListenerHacked r){
+        this.clickListenerHacked = r;
+    }
+
     public void addListItem(City city, int position){
         mList.add(city);
         notifyItemInserted(position);
     }
 
+    public void removeListItem(int position){
+        mList.remove(position);
+        notifyItemRemoved(position);
+    }
+
 
 
     /* MY VIEW HOLDER CLASS */
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         public TextView tvName;
 
         public MyViewHolder(View itemView){
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.tv_city_title);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(clickListenerHacked != null){
+                clickListenerHacked.onClickListener(v, getPosition());
+            }
         }
     }
 
