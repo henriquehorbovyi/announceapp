@@ -18,4 +18,10 @@ public class SplashActivity extends AppCompatActivity{
         startActivity(main);
         finish();
     }
+
+    public static void main(String args[]){
+        System.out.println("Hello again! :)");
+    }
+
+
 }

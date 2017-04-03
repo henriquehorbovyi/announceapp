@@ -64,7 +64,7 @@ public class ChooseCityAdapter extends RecyclerView.Adapter<ChooseCityAdapter.My
 
 
     /* MY VIEW HOLDER CLASS */
-    public class MyViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView tvName;
 
         public MyViewHolder(View itemView){

@@ -21,6 +21,7 @@ public class CategoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         mToolbar = (Toolbar) findViewById(R.id.maintoolbar);
+        mToolbar.setTitle(R.string.title_activity_categories);
         setSupportActionBar(mToolbar);
 
 
@@ -37,12 +38,12 @@ public class CategoriesActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.toolbar_menu,menu);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -56,7 +57,7 @@ public class CategoriesActivity extends AppCompatActivity {
                             }
                         }).show();
                 break;*/
-            case R.id.toolbar_item_settings:
+            case R.id.item_settings:
                 //Snackbar.make(this.findViewById(R.id.toolbar_item_settings),"Settings...",Snackbar.LENGTH_LONG).show();
                 break;
         }

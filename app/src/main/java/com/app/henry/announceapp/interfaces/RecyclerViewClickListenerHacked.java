@@ -8,7 +8,7 @@ import android.view.View;
 
 public interface RecyclerViewClickListenerHacked {
 
-    public void onClickListener(View view, int position);
+    void onClickListener(View view, int position);
 
 
 }

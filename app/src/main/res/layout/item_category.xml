@@ -8,7 +8,8 @@
         <!--app:elevation="3dp"app:cardCornerRadius="3dp"-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv_category"
@@ -18,7 +19,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+               />
 
             <TextView
                 android:id="@+id/tv_category_title"

@@ -19,7 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".CategoriesActivity" />
-        <activity android:name=".ChooseCityActivity"></activity>
+        <activity android:name=".ChooseCityActivity" />
+        <activity
+            android:name=".PlacesActivity"
+            android:label="@string/title_activity_places"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
