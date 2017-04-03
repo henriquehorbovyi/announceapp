@@ -1,5 +1,6 @@
 package com.app.henry.announceapp.fragment;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.henry.announceapp.CategoriesActivity;
+import com.app.henry.announceapp.PlacesActivity;
 import com.app.henry.announceapp.R;
 import com.app.henry.announceapp.adapter.CategoryAdapter;
+import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
 import com.app.henry.announceapp.model.Category;
 
 import java.util.List;
@@ -18,7 +21,7 @@ import java.util.List;
  * Created by Henry on 26/03/2017.
  */
 
-public class CategoryFragment extends android.support.v4.app.Fragment {
+public class CategoryFragment extends android.support.v4.app.Fragment implements RecyclerViewClickListenerHacked {
 
     private RecyclerView mRecyclerView;
     private List<Category> mList;
@@ -49,15 +52,19 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
                 }*/
             }
         });
-
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mList = ((CategoriesActivity) getActivity()).createCategoriesList(3);
+        mList = ((CategoriesActivity) getActivity()).createCategoriesList(4);
         CategoryAdapter categoryAdapter = new CategoryAdapter(getActivity(), mList);
+        categoryAdapter.addRecyclerViewClickListenerHacked(this);
         mRecyclerView.setAdapter(categoryAdapter);
         return view;
+    }
+
+    @Override
+    public void onClickListener(View view, int position) {
+        startActivity(new Intent(getActivity(), PlacesActivity.class));
     }
 }

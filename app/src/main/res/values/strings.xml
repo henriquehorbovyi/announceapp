@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">AnnounceApp</string>
+    <string name="title_activity_places">Lugares</string>
+    <string name="title_activity_categories">Categorias</string>
 
     <!-- toolbar strings -->
-    <string name="toolbar_item_filter">Filtros</string>
-    <string name="toolbar_item_settings">Configurações</string>
+    <string name="item_filter">Filtros</string>
+    <string name="subitem_bestplacesorder">Melhores Lugares</string>
+    <string name="subitem_alfabeticorder">Ordem Alfabetica</string>
+    <string name="subitem_nearbyorder">Mais Próximos</string>
+
+    <string name="item_settings">Configurações</string>
+    <string name="item_helpfeedback">Ajuda e Feedback</string>
+
+
+    <string name="select_your_location">Selecione sua localização!</string>
 </resources>

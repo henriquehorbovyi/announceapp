@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+      android:id="@+id/item_filter"
+      android:icon="@drawable/ic_filter"
+      android:title="@string/item_filter"
+      app:showAsAction="always" >
+
+        <menu>
+            <item android:id="@+id/subitem_bestplacesorder"
+                android:title="@string/subitem_bestplacesorder"
+                />
+            <item android:id="@+id/subitem_alfabeticorder"
+                android:title="@string/subitem_alfabeticorder"
+                />
+            <item android:id="@+id/subitem_nearbyorder"
+                android:title="@string/subitem_nearbyorder"
+                />
+        </menu>
+    </item>
+
+    <item android:id="@+id/item_settings"
+        android:title="@string/item_settings"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_helpfeedback"
+        android:title="@string/item_helpfeedback"
+        app:showAsAction="never"/>
+
+</menu>

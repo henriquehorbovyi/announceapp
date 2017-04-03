@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.app.henry.announceapp.R;
+import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
 import com.app.henry.announceapp.model.Category;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     private List<Category> mList;
     private LayoutInflater mLayoutInflater;
+    private RecyclerViewClickListenerHacked clickListenerHacked;
 
     public CategoryAdapter(Context context, List<Category> l){
         mList = l;
@@ -46,13 +48,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         return mList.size();
     }
 
+
+    public void addRecyclerViewClickListenerHacked(RecyclerViewClickListenerHacked recyclerView){
+        clickListenerHacked = recyclerView;
+    }
+
     public void addListItem(Category category, int position){
         mList.add(category);
         notifyItemInserted(position);
     }
 
     /* MY VIEW HOLDER CLASS */
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView ivCategory;
         public TextView tvCategory;
 
@@ -60,8 +67,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             super(itemView);
             ivCategory = (ImageView) itemView.findViewById(R.id.iv_category);
             tvCategory = (TextView)  itemView.findViewById(R.id.tv_category_title);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v){
+            if(clickListenerHacked != null){
+                clickListenerHacked.onClickListener(v, getPosition());
+            }
 
         }
+
     }
 
 }
