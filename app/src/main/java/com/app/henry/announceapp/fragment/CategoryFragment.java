@@ -52,8 +52,6 @@ public class CategoryFragment extends android.support.v4.app.Fragment implements
                 }*/
             }
         });
-
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);

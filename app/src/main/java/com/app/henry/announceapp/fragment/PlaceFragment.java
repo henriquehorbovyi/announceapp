@@ -1,37 +1,39 @@
 package com.app.henry.announceapp.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.app.henry.announceapp.CategoriesActivity;
-import com.app.henry.announceapp.ChooseCityActivity;
+import com.app.henry.announceapp.PlacesActivity;
 import com.app.henry.announceapp.R;
-import com.app.henry.announceapp.adapter.ChooseCityAdapter;
+import com.app.henry.announceapp.adapter.CategoryAdapter;
+import com.app.henry.announceapp.adapter.PlaceAdapter;
 import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
-import com.app.henry.announceapp.model.City;
+import com.app.henry.announceapp.model.Place;
 
 import java.util.List;
 
 /**
- * Created by Henry on 28/03/2017.
+ * Created by henry on 03/04/17.
  */
 
-public class ChooseCityFragment extends Fragment implements RecyclerViewClickListenerHacked{
+public class PlaceFragment extends Fragment implements RecyclerViewClickListenerHacked{
 
     private RecyclerView mRecyclerView;
-    private List<City> mList;
+    private List<Place>  mList;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_choosecity,container,false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_cities);
+    public View onCreateView(LayoutInflater inflater,final ViewGroup container, Bundle savedInstanceState) {
+        View view       = inflater.inflate(R.layout.fragment_places,container,false);
+        mRecyclerView   = (RecyclerView) view.findViewById(R.id.rv_list_places);
         mRecyclerView.setHasFixedSize(true);
-        //onScroll
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -43,29 +45,20 @@ public class ChooseCityFragment extends Fragment implements RecyclerViewClickLis
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
-
-
-        //GridLayoutManager layoutManager = new GridLayoutManager(?);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
-
-        mList = ((ChooseCityActivity) getActivity()).createCityList(3);
-        ChooseCityAdapter chooseCityAdapter = new ChooseCityAdapter(getActivity(), mList);
-        chooseCityAdapter.addRecyclerViewClickListenerHacked(this);
-        mRecyclerView.setAdapter(chooseCityAdapter);
-
+        mList = ((PlacesActivity) getActivity()).createPlaceList(5);
+        PlaceAdapter placeAdapter = new PlaceAdapter(getActivity(),mList);
+        placeAdapter.addRecyclerViewClickListenerHacked(this);
+        mRecyclerView.setAdapter(placeAdapter);
         return view;
     }
 
 
-    //onClick
     @Override
     public void onClickListener(View view, int position) {
-        startActivity(new Intent(getActivity(), CategoriesActivity.class));
-        getActivity().finish();
-        //ChooseCityAdapter chooseCityAdapter = (ChooseCityAdapter) mRecyclerView.getAdapter();
-        //chooseCityAdapter.removeListItem(position);
+        //TODO: OPEN DETAILS...
+        Snackbar.make(view,"Do something...",Snackbar.LENGTH_SHORT).show();
     }
-
 }
