@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
-import com.app.henry.announceapp.fragment.PlaceFragment;
+import com.app.henry.announceapp.fragment.PlacesFragment;
 import com.app.henry.announceapp.model.Place;
 
 import java.util.ArrayList;
@@ -23,22 +23,13 @@ public class PlacesActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.placestoolbar);
         setSupportActionBar(toolbar);
 
-        PlaceFragment fragment   =  (PlaceFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
+        PlacesFragment fragment   =  (PlacesFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
         if(fragment == null){
-            fragment = new PlaceFragment();
+            fragment = new PlacesFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_places,fragment,"mainFrag");
             ft.commit();
         }
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override

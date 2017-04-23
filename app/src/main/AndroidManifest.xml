@@ -23,6 +23,10 @@
         <activity
             android:name=".PlacesActivity"
             android:label="@string/title_activity_places"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".PlaceDetailsActivity"
+            android:label="@string/title_activity_place_details"
             android:theme="@style/AppTheme"></activity>
     </application>
 

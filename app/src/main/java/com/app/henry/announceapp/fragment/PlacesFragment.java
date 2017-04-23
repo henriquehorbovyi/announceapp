@@ -1,8 +1,7 @@
 package com.app.henry.announceapp.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.app.henry.announceapp.CategoriesActivity;
+import com.app.henry.announceapp.PlaceDetailsActivity;
 import com.app.henry.announceapp.PlacesActivity;
 import com.app.henry.announceapp.R;
-import com.app.henry.announceapp.adapter.CategoryAdapter;
 import com.app.henry.announceapp.adapter.PlaceAdapter;
 import com.app.henry.announceapp.interfaces.RecyclerViewClickListenerHacked;
 import com.app.henry.announceapp.model.Place;
@@ -24,7 +22,7 @@ import java.util.List;
  * Created by henry on 03/04/17.
  */
 
-public class PlaceFragment extends Fragment implements RecyclerViewClickListenerHacked{
+public class PlacesFragment extends Fragment implements RecyclerViewClickListenerHacked{
 
     private RecyclerView mRecyclerView;
     private List<Place>  mList;
@@ -58,7 +56,6 @@ public class PlaceFragment extends Fragment implements RecyclerViewClickListener
 
     @Override
     public void onClickListener(View view, int position) {
-        //TODO: OPEN DETAILS...
-        Snackbar.make(view,"Do something...",Snackbar.LENGTH_SHORT).show();
+        startActivity(new Intent( (PlacesActivity) getActivity(), PlaceDetailsActivity.class));
     }
 }

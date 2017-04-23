@@ -1,6 +1,8 @@
 package com.app.henry.announceapp;
 
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesActivity extends AppCompatActivity {
-    Toolbar mToolbar;
+    private Toolbar mToolbar;
+    private NavigationView navigation;
+    private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +27,9 @@ public class CategoriesActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.maintoolbar);
         mToolbar.setTitle(R.string.title_activity_categories);
         setSupportActionBar(mToolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigation = (NavigationView) findViewById(R.id.navigation);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
         // FRAGMENT
@@ -74,5 +80,6 @@ public class CategoriesActivity extends AppCompatActivity {
         }
         return list;
     }
+
 
 }
