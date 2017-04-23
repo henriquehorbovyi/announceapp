@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/nav_menu_g1" android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_item_choosecity"
-            android:title="Escolher Cidade" />
+            android:id="@+id/nav_item_changelocation"
+            android:icon="@drawable/ic_navigation_change_city"
+            android:title="Mudar de Cidade" />
+    </group>
+    <group android:id="@+id/nav_menu_g2" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_settings"
+            android:icon="@drawable/ic_navigation_settings"
+            android:title="Configurações" />
+        <item
+            android:id="@+id/nav_item_helpandfeedback"
+            android:icon="@drawable/ic_navigation_helpfeed"
+            android:title="Ajuda e Feedback" />
     </group>
 </menu>
