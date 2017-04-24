@@ -1,5 +1,6 @@
 package com.app.henry.announceapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -37,7 +38,7 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.setDrawerListener(toggle);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
 
@@ -99,6 +100,8 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
 
         switch (id){
             case R.id.nav_item_changelocation:
+                this.finish();
+                startActivity(new Intent(this,ChooseCityActivity.class));
                 break;
         }
 
@@ -117,4 +120,8 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
         }
     }
 
+
+
 }
+
+

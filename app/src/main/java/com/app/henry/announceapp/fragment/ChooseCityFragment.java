@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.app.henry.announceapp.CategoriesActivity;
 import com.app.henry.announceapp.ChooseCityActivity;
 import com.app.henry.announceapp.R;
@@ -50,11 +52,10 @@ public class ChooseCityFragment extends Fragment implements RecyclerViewClickLis
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mList = ((ChooseCityActivity) getActivity()).createCityList(3);
+        mList = ((ChooseCityActivity) getActivity()).getCitiesData();
         ChooseCityAdapter chooseCityAdapter = new ChooseCityAdapter(getActivity(), mList);
         chooseCityAdapter.addRecyclerViewClickListenerHacked(this);
         mRecyclerView.setAdapter(chooseCityAdapter);
-
         return view;
     }
 

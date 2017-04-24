@@ -1,18 +1,24 @@
 package com.app.henry.announceapp.model;
 /**
  * Created by Henry on 28/03/2017.
- */
-
+*/
 public class City {
-    private String name;
-    private String location;
-    private String cep;
+    private int     id;
+    private String  name;
+    private String  location;
 
     public City(){}
-    public City(String name, String location, String cep){
+    public City(String name, String location){
         this.name       = name;
         this.location   = location;
-        this.cep        = cep;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int name) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,10 +37,4 @@ public class City {
         this.location = location;
     }
 
-    public String getCep() {
-        return cep;
-    }
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
 }
